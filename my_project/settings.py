@@ -118,6 +118,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-juandavidc0-streetseeke-x8opn14gd7i.ws.codeinstitute-ide.net'
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
