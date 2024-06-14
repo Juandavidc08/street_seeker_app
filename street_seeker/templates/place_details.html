@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ place.name }}</h1>
+    <p>{{ place.description }}</p>
+    <p>Location: {{ place.location }}</p>
+
+    <h2>Book Reservation</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Book Reservation</button>
+    </form>
+{% endblock %}

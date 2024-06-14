@@ -3,9 +3,11 @@
 <h1>Street Search</h1>
 <ul>
     {% for place in places %}
-    <li onclick="showPlaceDetails({ name: '{{ place.name }}', description: '{{ place.description }}', location: '{{ place.location }}' })">
-        {{ place.name }}
-        </li>
+    <li>
+        <a href="{% url 'place_details' place_id=place.id %}">
+            {{ place.name }}
+        </a>
+    </li>
     {% endfor %}
 </ul>
 <button onclick="tryAgain()">Try Again</button>
