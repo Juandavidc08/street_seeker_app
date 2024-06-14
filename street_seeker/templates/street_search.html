@@ -2,11 +2,9 @@
 <h1>Street Search</h1>
 <ul>
     {% for place in places %}
-    <li>
-        {{ place.name}}
-        {{ place.description}}
-        {{ place.location}}
-    </li>
+    <li onclick="showPlaceDetails({ name: '{{ place.name }}', description: '{{ place.description }}', location: '{{ place.location }}' })">
+        {{ place.name }}
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}
