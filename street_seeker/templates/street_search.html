@@ -1,4 +1,5 @@
 {% extends "base.html" %} {% block content %}
+{% load static %}
 <h1>Street Search</h1>
 <ul>
     {% for place in places %}
@@ -7,4 +8,8 @@
         </li>
     {% endfor %}
 </ul>
+<button onclick="tryAgain()">Try Again</button>
+
+
+<script src="{% static 'js/street_search.js' %}"></script>
 {% endblock %}
