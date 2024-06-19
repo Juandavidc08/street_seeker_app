@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
+from django.contrib import messages
 from .models import Place, Reservation
 from .forms import ReservationForm, SignupForm
 from random import sample
@@ -32,9 +33,11 @@ def place_details(request, place_id):
             reservation.user = request.user
             reservation.place = place
             reservation.save()
+            messages.success(request, 'Your reservation has been successfully made.')
             return redirect('reservation_confirmation')
         else:
-            return redirect('login')  # Redirect to login page
+            messages.warning(request, 'You need to login to make a reservation.')
+            return redirect('login')
 
     context = {
         'place': place,
@@ -42,6 +45,10 @@ def place_details(request, place_id):
         'user_authenticated': user_authenticated,
     }
     return render(request, 'place_details.html', context)
+
+def reservation_confirmation(request):
+    return render(request, 'reservation_confirmation.html')
+
 
 def signup(request):
     if request.method == 'POST':

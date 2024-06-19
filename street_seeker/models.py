@@ -11,7 +11,7 @@ class Place(models.Model):
 
     def __str__(self):
         return self.name
-
+        
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     place = models.ForeignKey(Place, on_delete=models.CASCADE)

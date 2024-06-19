@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+Reservation Confirmation
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Reservation Confirmed</h1>
+    <p>Your reservation has been successfully made.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary">Go to Home</a>
+</div>
+{% endblock %}
