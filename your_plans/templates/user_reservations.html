@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Reservations{% endblock %}
+
+{% block content %}
+<h2>Your Reservations</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Place</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Guests</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reservation in reservations %}
+        <tr>
+            <td>{{ reservation.place.name }}</td>
+            <td>{{ reservation.reservation_date }}</td>
+            <td>{{ reservation.reservation_time }}</td>
+            <td>{{ reservation.guests }}</td>
+            <td>
+                <a href="{% url 'edit_reservation' reservation.id %}" class="btn btn-primary btn-sm">Edit</a>
+                <a href="{% url 'delete_reservation' reservation.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

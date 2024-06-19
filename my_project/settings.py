@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'street_seeker',
+    'your_plans',
 ]
 
 MIDDLEWARE = [
